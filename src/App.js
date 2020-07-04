@@ -1,4 +1,5 @@
 import React from 'react';
+import Searchbar from './components/Searchbar'
 
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
         <h1>Movie and Tv Database</h1>
       </header>
       <main>
-        
+        <Searchbar />
       </main>
     </div>
   );
