@@ -1,12 +1,16 @@
 import React from 'react'
+import { FiSearch } from 'react-icons/fi'
 
-function Searchbar({input, userSearch}) {
+const Searchbar = ({ inputHandler, userSearch }) => {
     return (
-        <section className="searchbox-wrap">
-            <input type="text" placeholder="Search" className="searchbox" onChange={input}
-            onKeyPress={userSearch}/>
-        </section>
+       <section className="searchbox-wrapper">
+           <input type="text" 
+           id="userInput"
+           placeholder="Search title" 
+           className="searchbox"
+           onChange={inputHandler}
+           onKeyPress={userSearch}/><FiSearch className="search-icon" />
+       </section>
     )
 }
-
 export default Searchbar

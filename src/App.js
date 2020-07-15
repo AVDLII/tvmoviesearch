@@ -16,10 +16,11 @@ function App() {
 
   const userSearch = (e) => {
     if (e.key === "Enter") {
+      document.getElementById('userInput').value = ''
       console.log(searchTerm.search)
       axios(baseurl+ak+"&query="+searchTerm.search).then(({ data }) => {
         let searchResults = data.results;
-
+        
         setSearchTerm(prevState => {
           return { ...prevState, searchResults: searchResults }
         })
@@ -29,7 +30,7 @@ function App() {
   } 
 
   const popUpInfo = id => {
-    axios(popupurl+id+"?api_key="+ak+"&append_to_response=credits").then(({ data }) => {
+    axios(popupurl+id+"?api_key="+ak+"&append_to_response=credits,recommendations").then(({ data }) => {
       let searchResults = data;
       console.log(searchResults)
       setSearchTerm(prevState => {
@@ -57,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Search for a Movie</h1>
+        <h1>Movie Database</h1>
       </header>
       <main>
         <Searchbar inputHandler={inputHandler} userSearch={userSearch} />

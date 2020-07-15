@@ -6,7 +6,7 @@
 
 body {
   font-family: 'montserrat', sans-serif;
-  background-color: #223343;
+  background-color: #011121;
 }
 
 header {
@@ -26,29 +26,196 @@ main {
   margin: 0 auto;
 }
 
-section {
+.searchbox-wrapper {
+  position: relative;
+  margin-top: 50px;;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 0.5s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
   padding: 15px;
 }
 
 .searchbox {
-  display: block;
+  position: absolute;
+  top: 0;
   width: 100%;
-  padding: 15px;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+  left: 0;
+}
 
-  border: none;
-  outline: none;
-  background: none;
+.searchbox:focus {
+  width: 600px;
+}
 
-  background-color: #EEE;
-  border-radius: 8px;
+.searchbox-wrapper:hover {
+  width: 600px;
+}
 
-  color: #54565A;
-  font-size: 20px;
-  font-weight: 300;
+.searchbox-wrapper:hover .searchbox {
+  display: block;
+}
 
-  transition: 0.4 ease-out;
+.search-icon {
+  box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
 }
 
 .searchbox:focus {
   box-shadow: 0px 0px 8px 3px #4484C4;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -15px;
+}
+
+.search-results .results{
+  width: 25%;
+  min-width: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.search-results .results img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+.search-results .results h3 {
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  background: #445565;
+  flex: 1 1 10%;
+  transition: 0.4 ease-out;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 5px;
+  max-height: 48px;
+}
+
+.search-results .results:hover h3 {
+  background: #FFF;
+  color: #223343;
+}
+
+.popup {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  top: 50px;
+  left: 300px;
+  width: 70vw;
+  height: 90vh;
+  background-color: #c4a20d;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: width 2s, height 4s;
+  
+}
+
+.popup .poster-wrapper {
+  /* background-color: red; */
+  display: flex;
+  width: 17vw;
+  height: 50vh;
+  padding: 24px;
+  color: #FFF;
+}
+
+.popup .poster-wrapper .poster {
+  max-width: 300px;
+  height: 44vh;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.popup .content-info {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  margin-left: 20px;
+}
+
+.popup .content-info h1 {
+  margin: 30px 0px 20px 0px;
+  font-size: 2.5rem;
+}
+
+.popup .content-info .rating {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 10vw;
+  height: 7.2vh;
+}
+
+.popup .content-info .genre {
+  font-size: 1.5em;
+  width: 10vw;
+  height: 7.2vh;
+}
+
+.popup .content-info .plot {
+  font-size: 1.5em;
+}
+
+.popup .cast {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+}
+
+.popup .cast ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.popup .cast img {
+  width: 10vw;
+  margin: -22px 0px 0px 30px;
+  border-radius: 8px;
+}
+
+.popup .cast figcaption {
+  font-weight: 600;
+  text-align: center;
+  
+}
+
+@media all and (max-width: 500px) {
+  .searchbox-wrapper:hover {
+    width: 300px;
+  }
 }
