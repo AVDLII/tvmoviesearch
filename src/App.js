@@ -30,7 +30,7 @@ function App() {
   } 
 
   const popUpInfo = id => {
-    axios(popupurl+id+"?api_key="+ak+"&append_to_response=credits,recommendations").then(({ data }) => {
+    axios(popupurl+id+"?api_key="+ak+"&append_to_response=credits,recommendations,tv").then(({ data }) => {
       let searchResults = data;
       console.log(searchResults)
       setSearchTerm(prevState => {
